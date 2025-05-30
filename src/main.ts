@@ -1,1 +1,3 @@
-export { GDDLClient } from './GDDLClient.js';
+import { GDDLClient } from './GDDLClient.js';
+
+export default GDDLClient;
