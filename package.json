@@ -1,19 +1,43 @@
 {
-  "name": "gddl-client",
-  "version": "1.0.0",
-  "description": "An HTTP client for the gdladder.com API",
-  "main": "main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/demonladder/gddl-client.git"
-  },
-  "author": "Diversensato",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/demonladder/gddl-client/issues"
-  },
-  "homepage": "https://github.com/demonladder/gddl-client#readme"
+    "name": "gddl-client",
+    "version": "1.0.0",
+    "description": "An HTTP client for the gdladder.com API",
+    "main": "lib/main.js",
+    "types": "lib/types/main.d.ts",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "prebuild": "rimraf lib",
+        "build": "tsc",
+        "prepare": "husky",
+        "lint": "eslint ./src",
+        "prettier": "prettier --write ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/demonladder/gddl-client.git"
+    },
+    "author": "Diversensato",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/demonladder/gddl-client/issues"
+    },
+    "homepage": "https://github.com/demonladder/gddl-client#readme",
+    "dependencies": {
+        "axios": "^1.9.0"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.27.0",
+        "eslint": "^9.27.0",
+        "eslint-config-prettier": "^10.1.5",
+        "husky": "^9.1.7",
+        "lint-staged": "^15.5.2",
+        "prettier": "^3.5.3",
+        "rimraf": "^6.0.1",
+        "typescript": "^5.8.3",
+        "typescript-eslint": "^8.33.0"
+    },
+    "lint-staged": {
+        "**/*": "prettier --write --ignore-unknown"
+    },
+    "type": "module"
 }
