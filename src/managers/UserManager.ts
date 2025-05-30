@@ -8,7 +8,14 @@ export class UserManager extends CachedManager<User> {
     }
 
     async fetchUser(userID: number) {
-        const res = await this.client.get<User>(`/user/${userID}`);
+        if (this.cache.has(userID)) {
+            return this.cache.get(userID);
+        }
+
+        const res = await this.client.get<{ ID: number; Name: string }>(
+            `/user/${userID}`,
+        );
+        this.cache.set(userID, new User(res.data.ID, res.data.Name));
         return res.data;
     }
 }
