@@ -1,0 +1,6 @@
+.commitlintrc.json
+.husky/
+.prettierrc.json
+eslint.config.js
+src/
+tsconfig.json
